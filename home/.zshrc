@@ -173,5 +173,4 @@ generate_kubeconfig_from_sa() {
   export KUBECONFIG="${kubeconfig_old}"
 }
 
-
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
