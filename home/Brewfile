@@ -14,6 +14,7 @@ brew "openvpn", restart_service: true
 brew "pinentry-mac"
 brew "pyenv-virtualenv"
 brew "shfmt"
+brew "stern"
 brew "tmux"
 brew "watch"
 brew "wget"
