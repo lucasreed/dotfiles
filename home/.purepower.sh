@@ -165,8 +165,10 @@ fi
 
   zsh_cuddle_cluster() {
     if [[ -v CLUSTER ]]; then
-      echo ${PROJECT}:${INVENTORY}:${CLUSTER}
+      #echo ${PROJECT}:${INVENTORY}:${CLUSTER}
+      echo ${PROJECT}:${INVENTORY}
     elif [[ -v PROJECT ]] && [[ -v INVENTORY ]]; then
+    # if [[ -v PROJECT ]] && [[ -v INVENTORY ]]; then
       echo ${PROJECT}:${INVENTORY}:
     fi
   }

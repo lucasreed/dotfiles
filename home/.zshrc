@@ -105,7 +105,10 @@ alias kgs="kubectl get services"
 alias kgp="kubectl get pods"
 alias kgd="kubectl get deployments"
 alias c="cuddlectl"
-alias a="$CUDDLEFISH_VENV/bin/auditomation"
+alias a="${CUDDLEFISH_VENV}/bin/auditomation"
+alias cdi="cd ${INFRASTRUCTURE_REPO}/inventory/${INVENTORY}"
+alias git="hub"
+alias gunset="unset GIT_SSH_COMMAND"
 
 source ~/.purepower.sh
 # Start Powerline Config
@@ -125,23 +128,30 @@ fi
 # Allow pyenv to manage virtualenvs as well
 eval "$(pyenv virtualenv-init -)"
 
-# Enables cuddlefish which has a virtualenv as its runtime
-source $HOME/.cuddlefish/config
-
 # Source asdf which is a version manager for various tools
 . /usr/local/opt/asdf/asdf.sh
+
+# Make direnv work: https://github.com/direnv/direnv
+eval "$(direnv hook zsh)"
+
+# Update PATH with current golang package bin dir
+export PATH=/Users/luke/.asdf/installs/golang/$(asdf current golang |awk '{print $1}')/packages/bin/:$PATH
 
 # Make sure vim (not minimal vi) is the default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # ydiff options I always want to be in use
-YDIFF_OPTIONS="-s"
+export YDIFF_OPTIONS="-s --wrap"
 
 # Make commandline editing vim-like
 # Also making sure reverse history search still works with ^R
 set -o vi
 bindkey "^R" history-incremental-search-backward
+
+# Because gcloud cli is dumb, it doesn't support python3, forcing python2 here
+# Very hacky, hopefully I don't break this in the future by deleting the "global" pyenv version
+export CLOUDSDK_PYTHON=python3
 
 kc() {
   kubectl -n "${namespace}" $@
@@ -172,5 +182,24 @@ generate_kubeconfig_from_sa() {
   echo "${KUBECONFIG_DATA}"
   export KUBECONFIG="${kubeconfig_old}"
 }
+
+cleanup_branches() {
+  git fetch -p;
+  for i in $(git branch -avv |grep gone|awk '{print $1}'); do git branch -D $i; done
+}
+
+gotest() {
+  go test $* | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/SKIP/s//$(printf "\033[34mSKIP\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | GREP_COLOR="01;33" egrep --color=always '\s*[a-zA-Z0-9\-_.]+[:][0-9]+[:]|^'
+}
+
+# Allow more files to be open
+ulimit -Sn 4096
+
+# Load autocompletions
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+
+# Enables cuddlefish which has a virtualenv as its runtime
+source $HOME/.cuddlefish/config
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
