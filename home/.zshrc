@@ -119,14 +119,17 @@ source ~/.purepower.sh
 export PATH="$HOME/tools/google-cloud-sdk/bin:$PATH"
 
 # setup pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+#fi
 
 # Allow pyenv to manage virtualenvs as well
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+# Not using pyenv any longer so using a python version installed by homebrew
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Source asdf which is a version manager for various tools
 . /usr/local/opt/asdf/asdf.sh
@@ -199,7 +202,17 @@ ulimit -Sn 4096
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
+export CUDDLEFISH_REPO_PATH=$HOME/code/github.com/fairwindsops/cuddlefish
+export BASTION_USERNAME=lucasreed
+
+
 # Enables cuddlefish which has a virtualenv as its runtime
 source $HOME/.cuddlefish/config
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/luke/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/luke/tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/luke/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/luke/tools/google-cloud-sdk/completion.zsh.inc'; fi

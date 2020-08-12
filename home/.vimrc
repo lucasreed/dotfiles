@@ -5,8 +5,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'dracula/vim'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'fatih/vim-go'
 Plugin 'preservim/nerdtree'
 call vundle#end()
 filetype plugin indent on
@@ -18,6 +19,6 @@ set t_Co=256
 syntax on
 set termguicolors
 set number
-" let g:dracula_italic = 0
-color nord
-" highlight Normal ctermbg=None
+let g:dracula_italic = 0
+color dracula
+highlight Normal ctermbg=None
