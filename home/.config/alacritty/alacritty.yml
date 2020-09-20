@@ -48,21 +48,18 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  # The normal (roman) font face to use.
   normal:
-    family: SourceCodeProForPowerline
+    family: FiraCode Nerd Font
     style: Regular
-
-  # The bold font face
   bold:
-    family: SourceCodeProForPowerline
+    family: FiraCode Nerd Font
     style: Bold
-
-  # The italic font face
   italic:
-    family: SourceCodeProForPowerline
-    style: Regular Italic
-
+    family: FiraCode Nerd Font
+    style: Italic
+  bold_italic:
+    family: FiraCode Nerd Font
+    style: Bold Italic
   # Point size of the font
   size: 12.0
 
