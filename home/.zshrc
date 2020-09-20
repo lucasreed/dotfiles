@@ -134,8 +134,13 @@ export PATH="$HOME/tools/google-cloud-sdk/bin:$PATH"
 # Not using pyenv any longer so using a python version installed by homebrew
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
+unamestr=$(uname)
 # Source asdf which is a version manager for various tools
-. $HOME/.asdf/asdf.sh
+if [[ ${unamestr} == "Darwin" ]]; then
+  . /usr/local/opt/asdf/asdf.sh
+else
+  . $HOME/.asdf/asdf.sh
+fi
 
 # Make direnv work: https://github.com/direnv/direnv
 eval "$(direnv hook zsh)"
