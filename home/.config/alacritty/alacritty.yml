@@ -19,6 +19,7 @@ window:
   dimensions:
     columns: 160
     lines: 48
+  dynamic_title: true
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -60,8 +61,8 @@ font:
   bold_italic:
     family: FiraCode Nerd Font
     style: Bold Italic
-  # Point size of the font
-  size: 12.0
+  # Point size of the fontalac
+  size: 11.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -209,7 +210,7 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -266,8 +267,6 @@ selection:
   # the selection clipboard. Otherwise, it will only be copied to the selection
   # clipboard.
   save_to_clipboard: true
-
-dynamic_title: true
 
 cursor:
   # Cursor style

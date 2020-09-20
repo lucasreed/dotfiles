@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/luke/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 export TERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
@@ -134,13 +134,13 @@ export PATH="$HOME/tools/google-cloud-sdk/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Source asdf which is a version manager for various tools
-. /usr/local/opt/asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
 
 # Make direnv work: https://github.com/direnv/direnv
 eval "$(direnv hook zsh)"
 
 # Update PATH with current golang package bin dir
-export PATH=/Users/luke/.asdf/installs/golang/$(asdf current golang |awk '{print $1}')/packages/bin/:$PATH
+export PATH=${HOME}/.asdf/installs/golang/$(asdf current golang |awk '{print $1}')/packages/bin/:$PATH
 
 # Make sure vim (not minimal vi) is the default editor
 export VISUAL=vim
@@ -204,20 +204,20 @@ ulimit -Sn 4096
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
-export CUDDLEFISH_REPO_PATH=$HOME/code/github.com/fairwindsops/cuddlefish
-export BASTION_USERNAME=lucasreed
-
-
-# Enables cuddlefish which has a virtualenv as its runtime
-source $HOME/.cuddlefish/config
-
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/luke/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/luke/tools/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '${HOME}/tools/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/tools/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/luke/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/luke/tools/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '${HOME}/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/tools/google-cloud-sdk/completion.zsh.inc'; fi
+
+if [ -d "${HOME}/code/github.com/stylemistake/runner" ]; then export PATH="${PATH}:${HOME}/code/github.com/stylemistake/runner/bin"; fi
+
+# Enables cuddlefish which has a virtualenv as its runtime
+export CUDDLEFISH_REPO_PATH=$HOME/code/github.com/fairwindsops/cuddlefish
+export BASTION_USERNAME=lucasreed
+source $HOME/.cuddlefish/config
 
 # Starship manages the look of the CLI prompt
 eval "$(starship init zsh)"
