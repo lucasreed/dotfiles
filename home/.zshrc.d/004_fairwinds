@@ -1,6 +1,7 @@
 alias c="cuddlectl"
 alias a="${CUDDLEFISH_VENV}/bin/auditomation"
 alias cdi="cd ${INFRASTRUCTURE_REPO}/inventory/${INVENTORY}"
+alias cdinf="cd $INFRASTRUCTURE_REPO"
 alias gunset="unset GIT_SSH_COMMAND"
 
 if [ -d "${HOME}/code/github.com/stylemistake/runner" ]; then export PATH="${PATH}:${HOME}/code/github.com/stylemistake/runner/bin"; fi
@@ -9,3 +10,6 @@ if [ -d "${HOME}/code/github.com/stylemistake/runner" ]; then export PATH="${PAT
 export CUDDLEFISH_REPO_PATH=$HOME/code/github.com/fairwindsops/cuddlefish
 export BASTION_USERNAME=lucasreed
 source $HOME/.cuddlefish/config
+
+export CUDDLEFISH_PREFER_SSH_GIT=true
+
