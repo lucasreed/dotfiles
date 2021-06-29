@@ -13,6 +13,9 @@ fi
 # Update PATH with current golang package bin dir
 export PATH=${HOME}/.asdf/installs/golang/$(asdf current golang |awk '{print $1}')/packages/bin/:$PATH
 
+# Update PATH for homebrew curl
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
 # Make direnv work: https://github.com/direnv/direnv
 eval "$(direnv hook zsh)"
 
@@ -33,6 +36,10 @@ cleanup_branches() {
   for i in $(git branch -avv |grep gone|awk '{print $1}'); do git branch -D $i; done
 }
 
+gitfresh() {
+  git checkout master && git pull && cleanup_branches
+}
+
 gotest() {
   go test $* | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/SKIP/s//$(printf "\033[34mSKIP\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | GREP_COLOR="01;33" egrep --color=always '\s*[a-zA-Z0-9\-_.]+[:][0-9]+[:]|^'
 }
@@ -46,3 +53,5 @@ autoload -U compinit && compinit
 
 # Starship manages the look of the CLI prompt
 eval "$(starship init zsh)"
+export PATH="/usr/local/opt/python@3.7/libexec/bin:$PATH"
+

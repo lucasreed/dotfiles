@@ -1,9 +1,14 @@
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 alias k="kubectl"
 alias kgn="kubectl get namespaces"
 alias kgs="kubectl get services"
 alias kgp="kubectl get pods"
 alias kgd="kubectl get deployments"
+alias kgds="kubectl get daemonsets"
+alias kgi="kubectl get ing"
 alias kevents="kubectl get events --sort-by=.metadata.creationTimestamp"
+alias cert_status='kubectl get certificate -o custom-columns="NAMESPACE:.metadata.namespace,NAME:.metadata.name,NOT_BEFORE:.status.notBefore,NOT_AFTER:.status.notAfter"'
 
 kc() {
   kubectl -n "${namespace}" $@

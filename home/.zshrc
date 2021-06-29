@@ -12,3 +12,4 @@ if [[ -d ${HOME}/.zshrc.d ]]; then
   done < <(find ${HOME}/.zshrc.d -follow -type f -not -name '*.disabled')
   unset dotd
 fi
+
