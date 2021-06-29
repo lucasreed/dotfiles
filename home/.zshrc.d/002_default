@@ -10,9 +10,6 @@ else
 fi
 
 
-# Update PATH with current golang package bin dir
-export PATH=${HOME}/.asdf/installs/golang/$(asdf current golang |awk '{print $1}')/packages/bin/:$PATH
-
 # Update PATH for homebrew curl
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
@@ -53,5 +50,5 @@ autoload -U compinit && compinit
 
 # Starship manages the look of the CLI prompt
 eval "$(starship init zsh)"
-export PATH="/usr/local/opt/python@3.7/libexec/bin:$PATH"
+export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 

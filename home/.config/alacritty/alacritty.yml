@@ -50,16 +50,16 @@ scrolling:
 # Font configuration (changes require restart)
 font:
   normal:
-    family: FiraCode Nerd Font
+    family: Fira Code
     style: Regular
   bold:
-    family: FiraCode Nerd Font
+    family: Fira Code
     style: Bold
   italic:
-    family: FiraCode Nerd Font
+    family: Fira Code
     style: Italic
   bold_italic:
-    family: FiraCode Nerd Font
+    family: Fira Code
     style: Bold Italic
   # Point size of the fontalac
   size: 12.0
@@ -247,12 +247,12 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
 
-  url:
+  # url:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
     # The URL is always added to the command as the last parameter.
-    launcher: open
+    # launcher: open
 
     # URL modifiers
     #
@@ -287,7 +287,7 @@ live_config_reload: true
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
 shell:
-  program: /usr/local/bin/zsh
+  program: /bin/zsh
   args:
     - --login
     - -c
