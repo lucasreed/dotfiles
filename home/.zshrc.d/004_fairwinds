@@ -9,7 +9,10 @@ if [ -d "${HOME}/code/github.com/stylemistake/runner" ]; then export PATH="${PAT
 # Enables cuddlefish which has a virtualenv as its runtime
 export CUDDLEFISH_REPO_PATH=$HOME/code/github.com/fairwindsops/cuddlefish
 export BASTION_USERNAME=lucasreed
-source $HOME/.cuddlefish/config
+#export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+
+# Moving this to .zshrc directly as it doesn't seem to work in this subfile
+# source ${HOME}/.cuddlefish/config
 
 export CUDDLEFISH_PREFER_SSH_GIT=true
 
