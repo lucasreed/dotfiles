@@ -1,11 +1,21 @@
 # Make GPG work
 export GPG_TTY=$TTY
-
-# Path to your oh-my-zsh installation.
-export ZSH="${HOME}/.oh-my-zsh"
 export TERM=xterm-256color
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/luke/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/luke/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/luke/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/luke/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Autocompletion only appears to work if it's in this file
+if [[ -f ${HOME}/.cuddlefish/config ]]; then
+  . ${HOME}/.cuddlefish/config
+fi
 
 if [[ -d ${HOME}/.zshrc.d ]]; then
   while read dotd; do
@@ -14,11 +24,5 @@ if [[ -d ${HOME}/.zshrc.d ]]; then
   unset dotd
 fi
 
-# Autocompletion only appears to work if it's in this file
-source ${HOME}/.cuddlefish/config
+export PATH=/Users/luke/go/bin:$PATH
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/luke/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/luke/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/luke/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/luke/google-cloud-sdk/completion.zsh.inc'; fi

@@ -1,12 +1,7 @@
-kops v1.16.3
-kubectl 1.15.7
 helm 3.3.4
-gcloud 310.0.0
-golang 1.16.2
 terraform 0.14.9
 rbac-lookup 0.6.4
 kube-capacity 0.3.2
-reckoner 4.2.0
 hub v2.14.2
 sops 3.5.0
 argo 2.5.2
@@ -14,4 +9,5 @@ vault 1.5.4
 pluto 4.1.2
 k9s 0.20.2
 yq 4.0.0
-tp 2.2.0
+kubectl 1.21.5
+awscli 2.4.23

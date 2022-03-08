@@ -33,13 +33,23 @@ cleanup_branches() {
   for i in $(git branch -avv |grep gone|awk '{print $1}'); do git branch -D $i; done
 }
 
+default_branch() {
+  git remote show origin | sed -n '/HEAD branch/s/.*: //p'
+}
+
 gitfresh() {
-  git checkout master && git pull && cleanup_branches
+  default=$(default_branch)
+  git checkout ${default};
+  git pull && cleanup_branches
+}
+
+gitlatest() {
+  CURRENT=$(git rev-parse HEAD)
+  git describe --tags --abbrev=0 ${CURRENT}
 }
 
 gitlog() {
-  CURRENT=$(git rev-parse HEAD)
-  LAST_TAG=$(git describe --tags --abbrev=0 ${CURRENT}^)
+  LAST_TAG=$(gitlatest)
   git log --pretty='format:%h %s' --reverse $LAST_TAG..HEAD
 }
 
