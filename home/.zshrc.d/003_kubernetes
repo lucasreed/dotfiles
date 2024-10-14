@@ -1,8 +1,13 @@
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+pkube() {
+  gcloud container clusters get-credentials prod-runtime-api --region us-central1 --project production-092024
+}
+
 alias k="kubectl"
 alias kg="kubectl get"
 alias kd="kubectl describe"
+alias kgno="kubectl get nodes"
 alias kgn="kubectl get namespaces"
 alias kgs="kubectl get services"
 alias kgp="kubectl get pods"
