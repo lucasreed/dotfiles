@@ -68,5 +68,4 @@ autoload -U compinit && compinit
 
 # Starship manages the look of the CLI prompt
 eval "$(starship init zsh)"
-export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"

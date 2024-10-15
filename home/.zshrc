@@ -11,7 +11,7 @@ fi
 
 export PATH=/Users/luke/go/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
-export PATH=/Users/luke/go/bin/:/usr/local/sbin:/Users/luke/.nvm/versions/node/v14.18.1/bin:/Users/luke/.local/share/solana/install/active_release/bin:/Users/luke/.krew/bin:/usr/local/opt/python@3.9/libexec/bin:/usr/local/opt/curl/bin:/Users/luke/.asdf/shims:/usr/local/Cellar/asdf/0.8.1_1/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luke/.nvm/versions/node/v14.18.1/bin:/Users/luke/.local/share/solana/install/active_release/bin:/Users/luke/.krew/bin:/usr/local/opt/python@3.9/libexec/bin:/usr/local/opt/curl/bin:/usr/local/opt/asdf/bin:/Users/luke/.cargo/bin
+export PATH=/Users/luke/go/bin/:/usr/local/sbin:/Users/luke/.nvm/versions/node/v14.18.1/bin:/Users/luke/.local/share/solana/install/active_release/bin:/Users/luke/.krew/bin:/usr/local/opt/curl/bin:/Users/luke/.asdf/shims:/usr/local/Cellar/asdf/0.8.1_1/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luke/.nvm/versions/node/v14.18.1/bin:/Users/luke/.local/share/solana/install/active_release/bin:/Users/luke/.krew/bin:/usr/local/opt/curl/bin:/usr/local/opt/asdf/bin:/Users/luke/.cargo/bin
 export PATH=$PATH:/Users/luke/.local/bin
 
 export NVM_DIR="$HOME/.nvm"
