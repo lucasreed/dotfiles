@@ -69,3 +69,7 @@ autoload -U compinit && compinit
 # Starship manages the look of the CLI prompt
 eval "$(starship init zsh)"
 export PATH="$HOME/.tfenv/bin:$PATH"
+
+# pyenv vscode ps1
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export VIRTUAL_ENV_DISABLE_PROMPT=1
